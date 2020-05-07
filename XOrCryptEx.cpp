@@ -30,32 +30,46 @@ uint64_t nextsm() {
 	return z ^ (z >> 31);
 }
 
-
-
 #define KEY_SIZE 2048
+
+void fnRotAL(void* key) {
+	uint8_t byte;
+	byte = ((uint64_t*)key)[0] >> 63;
+
+	for (uint16_t i = 0; i < (((KEY_SIZE / 8) / sizeof(uint64_t)) - 1); i++) {
+		((uint64_t*)key)[i] <<= 1;
+		((uint64_t*)key)[i] |= ((uint64_t*)key)[i + 1] >> 63;
+	}
+
+	((uint64_t*)key)[((KEY_SIZE / 8) / sizeof(uint64_t)) - 1] <<= 1;
+	((uint64_t*)key)[((KEY_SIZE / 8) / sizeof(uint64_t)) - 1] |= byte;
+}
 void XOrEncrypt(void* pData, int nDatalen, void* key) {
 	char x;
 	for (int i = 0; i < nDatalen; i++) {
 		x = ((char*)pData)[i];
 		((char*)pData)[i] ^= ((char*)key)[i % (KEY_SIZE / 8)];
 		((char*)key)[i % (KEY_SIZE / 8)] ^= x;
+		fnRotAL(key);
 	}
 }
 void XOrDecrypt(void* pData, int nDatalen, void* key) {
 	for (int i = 0; i < nDatalen; i++) {
 		((char*)pData)[i] ^= ((char*)key)[i % (KEY_SIZE / 8)];
 		((char*)key)[i % (KEY_SIZE / 8)] ^= ((char*)pData)[i];
+		fnRotAL(key);
 	}
 }
 
 #define MB 1048576
-#define MUL 1024
+#define MUL 1
 
 int main() {
 	// Seed
 	x = 18357827323532641321;
 	for (int i = 0; i < 4; i++)
 		s[i] = nextsm();
+
 
 	// Random data stream
 	void* data = (char*)malloc(MB * MUL);
@@ -72,6 +86,12 @@ int main() {
 		"g67c3b8oamnre6c3cobw672c gr5ohiabco682erc8b6t37c6377rlcwvk09ä0öv,ceg763nm9n8bw"
 		"nad8wn6a7o823,8rm7923bv8r376bc7267n8rzxbga78nb28c6r8cnj2edcbbgm8,9l09xa9owcavn"
 		"z2vrm87cgqm,xe9chi8vw3cr3vcted", 256);
+
+
+	for (int i = 0; i < KEY_SIZE; i++) {
+		for (int i = 0; i < 8; i++)
+			fnRotAL(key);
+	}
 
 	// Encrypt and reset key
 	XOrEncrypt(data, MB * MUL, key);
