@@ -30,7 +30,7 @@ void XOrCryptD(void* pData, int nDatalen, void* key) {
 }
 
 int main() {
-	// Test
+	// Test New 2
 	void* data = (char*)malloc(100);
 	memcpy(data, "Hello, this is a test to prove a concept of XorCrypt\nIt has now been extendet to test it fully", 95);
 	void* key = (char*)malloc(32);
