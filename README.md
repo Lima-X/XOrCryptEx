@@ -10,6 +10,7 @@ It is also nativly compatible with 8-, 16-, 32- and 64-Bit CPU's
 -> Bitwise array rotate Key\
 -> repeate until done
 
+![SCHEM](https://github.com/Lima-X-Coding/XOrCrypt/blob/master/XOrCrypt.png)
 ## Comment
 I don't really know how good the protection/encryption exactly is (in statistical means),
 but it should be pretty strong for an Xorcrypt algorithm and for the amount of code it requires.\
