@@ -55,9 +55,9 @@ extern "C" {
 
                    The folling code is an example on how to achive that, it is only useful for 8/16-Bit:
                    | for (int i = 0; i < nDataLen / (1 << ((sizeof(_XC_DT) * 8) - 1)); i++)              |
-		           |     fnXOrCrypt((void*)((uintX_t)pData + (i * (1 << ((sizeof(_XC_DT) * 8) - 1)))),   |
-			       |         (1 << ((sizeof(_XC_DT) * 8) - 1)), key);                                    |
-	               | fnXOrCrypt((void*)((uintX_t)pData + ((nDataLen / (1 << ((sizeof(_XC_DT) * 8) - 1))) |
+                   |     fnXOrCrypt((void*)((uintX_t)pData + (i * (1 << ((sizeof(_XC_DT) * 8) - 1)))),   |
+                   |         (1 << ((sizeof(_XC_DT) * 8) - 1)), key);                                    |
+                   | fnXOrCrypt((void*)((uintX_t)pData + ((nDataLen / (1 << ((sizeof(_XC_DT) * 8) - 1))) |
                    |     * (1 << ((sizeof(_XC_DT) * 8) - 1)))),                                          |
                    |     nDataLen % (1 << ((sizeof(_XC_DT) * 8) - 1)), key);                             |
 
