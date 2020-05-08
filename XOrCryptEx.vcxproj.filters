@@ -18,5 +18,13 @@
     <ClCompile Include="XOrCryptEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="XOrCrypt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="XOrCrypt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

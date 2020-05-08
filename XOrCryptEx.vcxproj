@@ -152,6 +152,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="XOrCryptEx.cpp" />
+    <ClCompile Include="XOrCrypt.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="XOrCrypt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
