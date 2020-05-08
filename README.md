@@ -1,4 +1,4 @@
-# XOrCrypt
+# XOrCrypt (C/C++)
 XOrCrypt is a lightweight Xorcrypt algorithm that uses chaining and bitwise array rotation.\
 It was designed to be extremly light on resources and has little to no overhead,
 as well as being very fast.\
