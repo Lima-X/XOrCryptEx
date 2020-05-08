@@ -5,9 +5,9 @@ as well as being very fast.\
 It is also nativly compatible with 8-, 16-, 32- and 64-Bit CPU's
 
 ## How it works
--> Xor Plaintext-Block with Key-Block (return Ciphertext)
--> Xor Key-Block with Paintext-Block (using temporary copy of Plaintext-Block)
--> Bitwise array rotate Key
+-> Xor Plaintext-Block with Key-Block (return Ciphertext)\
+-> Xor Key-Block with Paintext-Block (using temporary copy of Plaintext-Block)\
+-> Bitwise array rotate Key\
 -> repeate until done
 
 ## Comment
