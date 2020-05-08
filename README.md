@@ -18,3 +18,6 @@ it constantly changes meaning that every Big Block of the Plain gets it's on pse
 The rotation just add's an additional layer of protection by making it harder to reverse engineer
 the Key using part of the Plaintext (if it is known or can be predicted),
 this is achived by introducing an "offset" in the key.
+
+If you want to use this you just need to include `XOrCrypt.h` and `XOrCrypt.c` in your project.\
+(XOrCryptEx.cpp was just for testing and debugging purposes, it might help tho to understand how to use it.)
